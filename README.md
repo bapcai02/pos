@@ -1,9 +1,6 @@
-![Triangle POS](public/images/logo-dark.png)
-> This Project is ready for Production. If you find any bug or have any suggestion please create an Issue.
-
 # Local Installation
 
-- run `` git clone https://github.com/FahimAnzamDip/triangle-pos.git ``
+- run `` git clone https://github.com/bapcai02/pos ``
 - run ``composer update `` 
 - run `` npm install ``
 - run ``npm run dev``
@@ -39,6 +36,3 @@
 - **Multiple Currency Settings**
 - **System Settings**
 - **Reports**
-
-# License
-**[Creative Commons Attribution 4.0	cc-by-4.0](https://creativecommons.org/licenses/by/4.0/)**

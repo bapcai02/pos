@@ -5,10 +5,11 @@ namespace Modules\Adjustment\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\Product\Entities\Product;
+use App\Traits\FormatDates;
 
 class AdjustedProduct extends Model
 {
-    use HasFactory;
+    use HasFactory, FormatDates;
 
     protected $guarded = [];
 

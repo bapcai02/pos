@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
 use Modules\People\Entities\Customer;
+use App\Traits\FormatDates;
 
 class Quotation extends Model
 {
-    use HasFactory;
+    use HasFactory, FormatDates;
 
     protected $guarded = [];
 
@@ -28,10 +29,6 @@ class Quotation extends Model
             $number = Quotation::max('id') + 1;
             $model->reference = make_reference_id('QT', $number);
         });
-    }
-
-    public function getDateAttribute($value) {
-        return Carbon::parse($value)->format('d M, Y');
     }
 
     public function getShippingAmountAttribute($value) {

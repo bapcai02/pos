@@ -5,10 +5,11 @@ namespace Modules\PurchasesReturn\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
+use App\Traits\FormatDates;
 
 class PurchaseReturnPayment extends Model
 {
-    use HasFactory;
+    use HasFactory, FormatDates;
 
     protected $guarded = [];
 
@@ -22,10 +23,6 @@ class PurchaseReturnPayment extends Model
 
     public function getAmountAttribute($value) {
         return $value / 100;
-    }
-
-    public function getDateAttribute($value) {
-        return Carbon::parse($value)->format('d M, Y');
     }
 
     public function scopeByPurchaseReturn($query) {

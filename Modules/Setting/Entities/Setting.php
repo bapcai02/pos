@@ -10,6 +10,22 @@ class Setting extends Model
 {
     use HasFactory;
 
+    protected $table = 'settings';
+
+    protected $fillable = [
+        'company_name',
+        'company_email',
+        'product_name',
+        'product_code',
+        'company_phone',
+        'site_logo',
+        'default_currency_id',
+        'default_currency_position',
+        'notification_email',
+        'footer_text',
+        'company_address',
+    ];
+
     protected $guarded = [];
 
     protected $with = ['currency'];

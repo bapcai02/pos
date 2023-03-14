@@ -5,10 +5,27 @@ namespace Modules\Purchase\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\Product\Entities\Product;
+use App\Traits\FormatDates;
 
 class PurchaseDetail extends Model
 {
-    use HasFactory;
+    use HasFactory, FormatDates;
+
+    protected $table = 'purchase_details';
+
+    protected $fillable = [
+        'purchase_id',
+        'product_id',
+        'product_name',
+        'product_code',
+        'quantity',
+        'price',
+        'unit_price',
+        'sub_total',
+        'product_discount_amount',
+        'product_discount_type',
+        'product_tax_amount',
+    ];
 
     protected $guarded = [];
 

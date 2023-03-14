@@ -5,10 +5,21 @@ namespace Modules\Expense\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
+use App\Traits\FormatDates;
 
 class Expense extends Model
 {
-    use HasFactory;
+    use HasFactory, FormatDates;
+
+    protected $table = 'expenses';
+
+    protected $fillable = [
+        'category_id',
+        'date',
+        'reference',
+        'details',
+        'amount',
+    ];
 
     protected $guarded = [];
 
@@ -23,10 +34,6 @@ class Expense extends Model
             $number = Expense::max('id') + 1;
             $model->reference = make_reference_id('EXP', $number);
         });
-    }
-
-    public function getDateAttribute($value) {
-        return Carbon::parse($value)->format('d M, Y');
     }
 
     public function setAmountAttribute($value) {

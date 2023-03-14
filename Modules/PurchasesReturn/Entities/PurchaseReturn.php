@@ -4,10 +4,32 @@ namespace Modules\PurchasesReturn\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Traits\FormatDates;
 
 class PurchaseReturn extends Model
 {
-    use HasFactory;
+    use HasFactory, FormatDates;
+
+    protected $table = 'purchase_returns';
+
+    protected $fillable = [
+        'date',
+        'reference',
+        'supplier_id',
+        'supplier_name',
+        'tax_percentage',
+        'tax_amount',
+        'discount_percentage',
+        'discount_amount',
+        'shipping_amount',
+        'total_amount',
+        'paid_amount',
+        'due_amount',
+        'status',
+        'payment_status',
+        'payment_method',
+        'note'
+    ];
 
     protected $guarded = [];
 

@@ -5,11 +5,22 @@ namespace Modules\Sale\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
+use App\Traits\FormatDates;
 
 class SalePayment extends Model
 {
+    use HasFactory, FormatDates;
 
-    use HasFactory;
+    protected $table = 'sale_payments';
+
+    protected $fillable = [
+        'sale_id',
+        'amount',
+        'date',
+        'reference',
+        'payment_method',
+        'note',
+    ];
 
     protected $guarded = [];
 
@@ -23,10 +34,6 @@ class SalePayment extends Model
 
     public function getAmountAttribute($value) {
         return $value / 100;
-    }
-
-    public function getDateAttribute($value) {
-        return Carbon::parse($value)->format('d M, Y');
     }
 
     public function scopeBySale($query) {

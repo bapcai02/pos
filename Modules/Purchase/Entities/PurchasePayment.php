@@ -5,10 +5,22 @@ namespace Modules\Purchase\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
+use App\Traits\FormatDates;
 
 class PurchasePayment extends Model
 {
-    use HasFactory;
+    use HasFactory, FormatDates;
+
+    protected $table = 'purchase_payments';
+
+    protected $fillable = [
+        'purchase_id',
+        'amount',
+        'date',
+        'reference',
+        'payment_method',
+        'note',
+    ];
 
     protected $guarded = [];
 
@@ -22,10 +34,6 @@ class PurchasePayment extends Model
 
     public function getAmountAttribute($value) {
         return $value / 100;
-    }
-
-    public function getDateAttribute($value) {
-        return Carbon::parse($value)->format('d M, Y');
     }
 
     public function scopeByPurchase($query) {

@@ -12,6 +12,23 @@ class Quotation extends Model
 {
     use HasFactory, FormatDates;
 
+    protected $table = 'quotations';
+
+    protected $fillable = [
+        'date',
+        'reference',
+        'customer_id',
+        'customer_name',
+        'tax_percentage',
+        'tax_amount',
+        'discount_percentage',
+        'discount_amount',
+        'shipping_amount',
+        'total_amount',
+        'status',
+        'note'
+    ];
+
     protected $guarded = [];
 
     public function quotationDetails() {

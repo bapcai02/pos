@@ -11,6 +11,17 @@ class PurchaseReturnPayment extends Model
 {
     use HasFactory, FormatDates;
 
+    protected $table = 'purchase_return_payments';
+
+    protected $fillable = [
+        'purchase_return_id',
+        'amount',
+        'date',
+        'reference',
+        'payment_method',
+        'note',
+    ];
+
     protected $guarded = [];
 
     public function purchaseReturn() {

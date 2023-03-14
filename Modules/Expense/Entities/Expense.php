@@ -11,6 +11,16 @@ class Expense extends Model
 {
     use HasFactory, FormatDates;
 
+    protected $table = 'expenses';
+
+    protected $fillable = [
+        'category_id',
+        'date',
+        'reference',
+        'details',
+        'amount',
+    ];
+
     protected $guarded = [];
 
     public function category() {

@@ -12,7 +12,12 @@ class Upload extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia, FormatDates;
 
+    protected $table = 'uploads';
+
+    protected $fillable = [
+        'folder',
+        'filename',
+    ];
+
     protected $guarded = [];
-
-
 }

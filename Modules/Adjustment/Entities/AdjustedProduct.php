@@ -11,6 +11,15 @@ class AdjustedProduct extends Model
 {
     use HasFactory, FormatDates;
 
+    protected $table = 'adjusted_products';
+
+    protected $fillable = [
+        'adjustment_id',
+        'product_id',
+        'quantity',
+        'type'
+    ];
+
     protected $guarded = [];
 
     protected $with = ['product'];

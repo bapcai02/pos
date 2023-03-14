@@ -11,6 +11,17 @@ class PurchasePayment extends Model
 {
     use HasFactory, FormatDates;
 
+    protected $table = 'purchase_payments';
+
+    protected $fillable = [
+        'purchase_id',
+        'amount',
+        'date',
+        'reference',
+        'payment_method',
+        'note',
+    ];
+
     protected $guarded = [];
 
     public function purchase() {

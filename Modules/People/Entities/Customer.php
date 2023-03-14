@@ -11,6 +11,17 @@ class Customer extends Model
 
     use HasFactory, FormatDates;
 
+    protected $table = 'customers';
+
+    protected $fillable = [
+        'customer_name',
+        'customer_email',
+        'customer_phone',
+        'city',
+        'country',
+        'address'
+    ];
+
     protected $guarded = [];
 
     protected static function newFactory() {

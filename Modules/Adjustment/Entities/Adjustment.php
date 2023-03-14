@@ -11,11 +11,15 @@ class Adjustment extends Model
 {
     use HasFactory, FormatDates;
 
-    protected $guarded = [];
+    protected $table = 'adjustments';
 
-    public function getDateAttribute($value) {
-        return Carbon::parse($value)->format('d M, Y');
-    }
+    protected $fillable = [
+        'date',
+        'reference',
+        'note',
+    ];
+
+    protected $guarded = [];
 
     public function adjustedProducts() {
         return $this->hasMany(AdjustedProduct::class, 'adjustment_id', 'id');

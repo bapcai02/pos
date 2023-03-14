@@ -11,6 +11,22 @@ class PurchaseDetail extends Model
 {
     use HasFactory, FormatDates;
 
+    protected $table = 'purchase_details';
+
+    protected $fillable = [
+        'purchase_id',
+        'product_id',
+        'product_name',
+        'product_code',
+        'quantity',
+        'price',
+        'unit_price',
+        'sub_total',
+        'product_discount_amount',
+        'product_discount_type',
+        'product_tax_amount',
+    ];
+
     protected $guarded = [];
 
     protected $with = ['product'];
